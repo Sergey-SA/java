@@ -16,26 +16,32 @@ public class FinalTask4 {
         for (int i = 0; i < 3; i++) {
             str = in.nextLine();
 
-            if (str.equals("Подсказка")) {
-                System.out.println("Неприятный virus in rar");
-                str = in.nextLine();
+            if (str.equals("Подсказка") && attempt > 0) {
+                System.out.println("Подсказка уже недоступна");
+                i--;
+            } else {
+
+                if (str.equals("Подсказка")) {
+                    System.out.println("Неприятный virus in rar");
+                    str = in.nextLine();
+                    if (str.equals("Заархивированный вирус")) {
+                        System.out.println("Правильно!");
+                    } else {
+                        System.out.println("Обидно, приходи в другой раз");
+                    }
+
+                    break;
+                }
+
                 if (str.equals("Заархивированный вирус")) {
                     System.out.println("Правильно!");
+                    break;
+                } else if (attempt < 2) {
+                    System.out.println("Подумай еще!");
+                    attempt++;
                 } else {
                     System.out.println("Обидно, приходи в другой раз");
                 }
-
-                break;
-            }
-
-            if (str.equals("Заархивированный вирус")) {
-                System.out.println("Правильно!");
-                break;
-            } else if (attempt < 2) {
-                System.out.println("Подумай еще!");
-                attempt++;
-            } else {
-                System.out.println("Обидно, приходи в другой раз");
             }
         }
 
